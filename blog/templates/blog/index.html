@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <p><a href="{% url 'blog:list' %}">Hello</a></p>
+    <title>Contents</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div>{{ post.formatted_markdown|safe }}</div>
+</body>
+</html>

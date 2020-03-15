@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+ 
+  <body>
+      <h1>Top</h1>
+      <p>Test Start</p>
+      <p>{{ member.name }}</p>
+      <p>{{ member.mail }}</p>
+      <p>{{ user.username }}</p>
+      <p>Test End</p>
+      {% for s in member.status.all %}
+      <p>{{ s }}</p>
+      {% endfor %}
+    
+      <a href = "{% url 'authentication:password_change' %}">Password_Change</a>
+      <a href = "{% url 'authentication:logout' %}">logout</a> 
+  </body>
+</html>

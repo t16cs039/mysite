@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <p>List</p>
+</head>
+<body>
+    {% for member_status in member.status.all %}
+        <p>{{ member_status }}</p>
+    {% endfor %}
+    {% for post in all_posts %}
+        <div><a href="{% url 'blog:index' post.id %}">{{ post.summary }}</a></div>
+        <p>{{ post.status }}</p>
+    {% endfor %}
+</body>
+</html>
