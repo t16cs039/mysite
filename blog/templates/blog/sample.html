@@ -1,0 +1,21 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/sample.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1>Status</h1>
+
+    {% for post in object_list %}
+        <div class="container">
+            <span class="box-title">{{ post.title }}</span>
+            <p>{{ post.summary }}</p>
+            <a href="{% url 'blog:index' post.status post.id %}" class="btn-box">Read More</a>
+        </div>
+        <br>
+    {% endfor %}
+
+{% endblock %}

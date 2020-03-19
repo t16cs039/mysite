@@ -9,6 +9,7 @@ app_name = 'authentication'
 
 urlpatterns = [
     path('', views.Top.as_view(), name='top'),
+    path('home/', views.Home.as_view(), name='home'),
     path('login/', views.Login.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('passord_change/', views.PasswordChange.as_view(), name='password_change'),

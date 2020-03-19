@@ -1,0 +1,20 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="wrap">
+  {% for s in member.status.all %}
+    <a href="{% url 'blog:sample' s %}" class="button">{{s}}</a>
+  {% endfor %}
+  <a href="{% url 'authentication:password_change' %}" class="button2">Change Password</a>
+  <a href="{% url 'authentication:logout' %}" class="button2">Logout</a>
+</div>
+{% endblock %}
+
+{% block script %}
+  <script src="/static/js/home.js"></script>
+{% endblock %}

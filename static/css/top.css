@@ -1,0 +1,13 @@
+body{
+    font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #404040;      /* 文字色 */
+    background: #596778; /* 背景色 */
+}
+
+h1.DomainName{
+    color: aliceblue;
+}
+
+h2{
+    color: aliceblue;
+}

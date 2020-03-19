@@ -1,13 +1,24 @@
+{% load static %}
+
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
   </head>
+
   <body>
-    <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Login</button>
-    </form>
+
+      <hgroup class="heading">
+        <h1 class="major">Login Form </h1>
+      </hgroup>
+        
+      <!-- form starts here -->
+      <form class="sign-up" method="post">
+          {% csrf_token %}
+          <h1 class="sign-up-title">Sign up in seconds</h1>
+          <input type="text" class="sign-up-input" name="username" placeholder="What's your username?" autofocus>
+          <input type="password" class="sign-up-input" name="password" placeholder="Choose a password">
+          <input type="submit" value="Sign me up!" class="sign-up-button">
+      </form>
   </body>
 </html>

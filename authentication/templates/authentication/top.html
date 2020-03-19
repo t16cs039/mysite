@@ -1,20 +1,95 @@
+{% load static %}
+
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style> .j3{ background: orange; } </style>
+    <link rel="stylesheet" href="{% static 'css/top.css' %}">
   </head>
- 
-  <body>
-      <h1>Top</h1>
-      <p>Test Start</p>
-      <p>{{ member.name }}</p>
-      <p>{{ member.mail }}</p>
-      <p>{{ user.username }}</p>
-      <p>Test End</p>
-      {% for s in member.status.all %}
-      <p>{{ s }}</p>
-      {% endfor %}
     
-      <a href = "{% url 'authentication:password_change' %}">Password_Change</a>
-      <a href = "{% url 'authentication:logout' %}">logout</a> 
+  <body>
+
+    <div class="container">
+      <h1 class="DomainName">WITHER</h1>     
+    </div>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">WITHERとは</h1>
+      <p class="lead">WITHERは、様々な情報を皆さんにお届けすることを目的とした個人的なブログです。</p>
+      <p class="lead">加えて、メンバーが主体的に様々なプロジェクトに楽しく取り組むことが可能な会員制のコミュニケーションサロンです。</p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="{% url 'authentication:login' %}" role="button">Login</a>
+      <a class="btn btn-dark btn-lg" href="#" role="button">入会</a>
+    </div>
+     
+    <div class="container">
+      <h2>ブログについて</h2>     
+    </div>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">どのような事について書かれてるの？</h1>
+      <p class="lead">BEGINNER</p>
+      <p class="lead">TECHNICAL</p>
+      <p class="lead">ENGLISH</p>
+      <p class="lead">VLOG</p>
+      <hr class="my-4">
+      <p>BEGINNERとは、コンピュータ関連に関する概念的なこと(分かりやすくをモットーに)</p>
+      <p>TECHNICALとは、コンピュータ関連に関する技術的なこと(アカデミックをモットーに)</p>
+      <p>ENGLISHとは、英語関係について役立つ情報(グローバルをモットーに)</p>
+      <p>VLOGとは、自身の日常(私は誰？をモットーに)</p>
+    </div>
+
+    <div class="container">
+      <h2>プロジェクトについて</h2>     
+    </div>
+      <div class="jumbotron text-center">
+      <h1 class="display-4">どんなプロジェクトがあるの？</h1>
+      <p class="lead">分かりません。</p>
+      <p class="lead">メンバーが主体的にプロジェクトを計画し、また、実行します。</p>
+      <p class="lead">時には、プロジェクトメンバーとして強引に参加させられることもあるとかないとか...</p>
+      <hr class="my-4">
+      <p>プロジェクトは、自身のブログが会員制であることの副次的なものなので<b>ほのぼの</b>としてます。(時の流れを楽しんでこってこと)</p>
+      <p>一番最初のプロジェクトは、私がこのサイトを一から作ったこと。(Wordpressとかは使用してないよってこと)</p>
+      <p>サイトを作ることを専門にしてないけど、そこそこのものを作れちゃうの凄くないって自慢したかったよ。(制作期間は10時間ぐらいってこと)</p>
+      <p>コンピュータを専門にしてるなら、もちょっとクオリティあげなよって言われたら、シュンってなるよ。(頭悪いよってこと)</p>
+      <p>力はあるけど、そんなに急ぐ必要がないよって人が集まるといいな(ただの願望だから無視してってこと)</p>
+    </div>
+    
+    <div class="container">
+      <h2>メリット</h2>     
+    </div>
+      <div class="jumbotron text-center j3">
+      <h1 class="display-4">メリットあるの？</h1>
+      <p class="lead">知識の共有が可能である。</p>
+      <p class="lead">様々な面白いことを皆さんで作っていくことが可能である。</p>
+      <p class="lead">出会いの場が豊富である。</p>
+      <hr class="my-4">
+      <p>そもそも頭の良き人の言ってること分からない...技術書高いと思う...人を助けたいのが私</p>
+      <p>面白いこと思いつかない...思いつくけど一緒に実行してくれる人がいない...人を助けたいのが私</p>
+      <p>学内や職場に出会いがない...人との繋がりを持ちたいけど持てない...人を助けたいのが私</p>
+      <p>頭が良い人のブログを見たい...美男美女が管理しているサロンに入りたい...人を助けれないのが私</p>
+    </div>
+
+    <div class="container">
+    <h2>入会するためには？</h2>     
+    </div>
+      <div class="jumbotron text-center j3">
+      <h1 class="display-4">入会条件</h1>
+      <p class="lead">互いに尊敬しあうこと。</p>
+      <p class="lead">余裕を持っていること。</p>
+      <p class="lead">仲良くやっていこうと思っていること。</p>
+      <hr class="my-4">
+      <p>当サロンにおける内容は秘密厳守とさせて頂きます</p>
+      <p>上記ルールをお守り頂けない場合は、法的処置をとらせていただくことがございます。ご容赦下さい。</p>
+      <p>このグループでのディスカッションは主にLINEでやり取りをしていこうと考えております。</p>
+      <p>当サロンのLINEグループへの参加は入会申し込み日から10日程度頂いております。</p>
+      <p>決済については毎月1日にクレジットカード決済が発生します。</p>
+      <a class="btn btn-dark btn-lg" href="#" role="button">入会</a>
+    </div>
+
   </body>
 </html>
