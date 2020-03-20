@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -132,3 +133,7 @@ LOGOUT_REDIRECT_URL = '/auth/login/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+STRIPE_PUBLIC_KEY = 'pk_test_5C5DI0yMhjFtt66yk4lZoLNL00yKgqWZIE'
+STRIPE_API_KEY = 'sk_test_ld0xVznWw1ehBOrGjyNCjBtJ00ui9olRhr'
+

@@ -25,6 +25,20 @@
       <hr class="my-4">
       <a class="btn btn-primary btn-lg" href="{% url 'authentication:login' %}" role="button">Login</a>
       <a class="btn btn-dark btn-lg" href="#" role="button">入会</a>
+      
+      <!--form action="" method="POST">
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ data_key }}"
+            data-amount="{{ data_amount }}"
+            data-name="{{ data_name }}"
+            data-description="{{ data_description }}"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+        </script>
+        {% csrf_token %}
+      </form-->
+
     </div>
      
     <div class="container">
