@@ -7,7 +7,6 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 
 # Create your models here.
-
 class Status(models.Model):
     name = models.CharField(max_length=140, blank=True)
 

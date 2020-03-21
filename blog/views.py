@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect
 
 from .models import Post, Status
 
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from authentication.models import Member
 
 # Create your views here.
-
 class Index(LoginRequiredMixin, TemplateView):
     model = Post
     template_name = 'blog/index.html'
@@ -107,3 +106,6 @@ class BlogList(LoginRequiredMixin, TemplateView):
                 context['all_posts'] += Post.objects.get(status=Status.objects.get(name=member_status))    
         '''
         return context
+
+class Example(TemplateView):
+    template_name = 'blog/example.html'

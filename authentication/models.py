@@ -12,9 +12,3 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
-
-class Sample(models.Model):
-    sample = models.IntegerField()
-
-    def __str__(self):
-        return self.sample

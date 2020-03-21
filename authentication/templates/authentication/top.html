@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style> .j3{ background: orange; } </style>
     <link rel="stylesheet" href="{% static 'css/top.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   </head>
     
   <body>
@@ -25,7 +26,6 @@
       <hr class="my-4">
       <a class="btn btn-primary btn-lg" href="{% url 'authentication:login' %}" role="button">Login</a>
       <a class="btn btn-dark btn-lg" href="#" role="button">入会</a>
-      
       <!--form action="" method="POST">
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"

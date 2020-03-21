@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls'), name='blog'),
     path('markdownx/', include('markdownx.urls'), name='markdown'),
-    path('auth/', include('authentication.urls'), name='authentication')
+    path('auth/', include('authentication.urls'), name='authentication'),
 ]
 
 if settings.DEBUG:
