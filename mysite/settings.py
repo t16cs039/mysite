@@ -25,7 +25,7 @@ SECRET_KEY = '3mq-d&vd!)kd+)zeu3(d2h=)czv7wp_)qy5n1s*2dsx$gyzadm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', 't16cs039.pythonanywhere.com']
 
 
 # Application definition
@@ -137,3 +137,4 @@ STATICFILES_DIRS = (
 STRIPE_PUBLIC_KEY = 'pk_test_5C5DI0yMhjFtt66yk4lZoLNL00yKgqWZIE'
 STRIPE_API_KEY = 'sk_test_ld0xVznWw1ehBOrGjyNCjBtJ00ui9olRhr'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
