@@ -24,6 +24,7 @@ urlpatterns = [
     path('blog/', include('blog.urls'), name='blog'),
     path('markdownx/', include('markdownx.urls'), name='markdown'),
     path('auth/', include('authentication.urls'), name='authentication'),
+    path('mdeditor/', include('mdeditor.urls')),
 ]
 
 if settings.DEBUG:

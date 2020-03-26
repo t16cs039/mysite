@@ -1,9 +1,18 @@
 {% extends 'authentication/base.html' %}
+{% load markdown_extras %}
 {% load static %}
+
+{% block head%}
+    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"-->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
 {% block content %}
 
-    <h1>{{ post.title }}</h1>
-    <div>{{ post.formatted_markdown|safe }}</div>
+{{ post.contents|markdown|safe }}
+    
+{% endblock %}
 
+{% block script %}
+    <!--script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script-->
 {% endblock %}

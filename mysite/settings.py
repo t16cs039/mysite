@@ -25,7 +25,7 @@ SECRET_KEY = '3mq-d&vd!)kd+)zeu3(d2h=)czv7wp_)qy5n1s*2dsx$gyzadm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 't16cs039.pythonanywhere.com']
+#ALLOWED_HOSTS = ['localhost', 't16cs039.pythonanywhere.com']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig', # ブログの閲覧
     'markdownx', # Markdownを使用するため
     'authentication.apps.AuthenticationConfig', # ログイン認証
+    'mdeditor', # to use mdeditor
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 TEMPLATES = [
     {
@@ -67,6 +69,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media'
             ],
+            'libraries':{
+                'markdown_extras': 'blog.templatetags.markdown_extras',
+            }
         },
     },
 ]
@@ -137,4 +142,10 @@ STATICFILES_DIRS = (
 STRIPE_PUBLIC_KEY = 'pk_test_5C5DI0yMhjFtt66yk4lZoLNL00yKgqWZIE'
 STRIPE_API_KEY = 'sk_test_ld0xVznWw1ehBOrGjyNCjBtJ00ui9olRhr'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+    }
+}

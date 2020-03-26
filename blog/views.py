@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .models import Post, Status
+from .models import Post, Status, Article
+from .forms import ArticleForm
 
 from django.views.generic import TemplateView, ListView, CreateView
 
@@ -9,9 +10,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from authentication.models import Member
 
 # Create your views here.
+class Article(LoginRequiredMixin, TemplateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'blog/index.html'
+
 class Index(LoginRequiredMixin, TemplateView):
     model = Post
-    template_name = 'blog/index.html'
+    template_name = 'blog/example.html'
     '''
     def get(self, request, post_id, *args, **kwargs):    
         post = Post.objects.get(pk=post_id)
@@ -31,7 +37,7 @@ class Index(LoginRequiredMixin, TemplateView):
         if flag != 1:
             return redirect('authentication:home')
         else:
-            return render(request, 'blog/index.html', context)
+            return render(request, 'blog/example.html', context)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
