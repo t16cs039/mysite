@@ -17,7 +17,7 @@ class Article(LoginRequiredMixin, TemplateView):
 
 class Index(LoginRequiredMixin, TemplateView):
     model = Post
-    template_name = 'blog/example.html'
+    template_name = 'blog/index.html'
     '''
     def get(self, request, post_id, *args, **kwargs):    
         post = Post.objects.get(pk=post_id)
@@ -37,7 +37,7 @@ class Index(LoginRequiredMixin, TemplateView):
         if flag != 1:
             return redirect('authentication:home')
         else:
-            return render(request, 'blog/example.html', context)
+            return render(request, 'blog/index.html', context)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

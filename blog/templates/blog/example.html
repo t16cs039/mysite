@@ -9,7 +9,9 @@
     </head>
 
     <body>
-        {{ post.contents|markdown|safe }}
+        <div> content:
+            <div id="content">{{ post.contents|markdown|safe }}</div>
+        </div>
     </body>
     <script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
     <script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>
