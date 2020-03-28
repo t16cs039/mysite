@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">   
 {% endblock %}
 
 {% block content %}
 <div class="wrap">
   {% for s in member.status.all %}
-    <a href="{% url 'blog:sample' s %}" class="button">{{s}}</a>
+    <a href="{% url 'blog:sample' s %}" data-text="{{s}}" class="button effect_glitch" id="Hi">{{s}}</a>
   {% endfor %}
-  <a href="{% url 'authentication:password_change' %}" class="button2">Change Password</a>
-  <a href="{% url 'authentication:logout' %}" class="button2">Logout</a>
+  <a href="{% url 'authentication:password_change' %}" data-text="Change Password" class="button effect_glitch">Change Password</a>
+  <a href="{% url 'authentication:logout' %}" data-text="Logout" class="button effect_glitch">Logout</a>
 </div>
 {% endblock %}
 
