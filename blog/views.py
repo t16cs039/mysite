@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Post, Status, Article
+from .models import Post, Status
 from .forms import ArticleForm
 
 from django.views.generic import TemplateView, ListView, CreateView
@@ -10,11 +10,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from authentication.models import Member
 
 # Create your views here.
-class Article(LoginRequiredMixin, TemplateView):
-    model = Article
-    form_class = ArticleForm
-    template_name = 'blog/index.html'
-
 class Index(LoginRequiredMixin, TemplateView):
     model = Post
     template_name = 'blog/index.html'

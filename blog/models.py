@@ -35,10 +35,3 @@ class Post(models.Model):
     # 管理者画面でのプレビュー表示
     def formatted_markdown(self):
         return markdownify(self.contents)
-
-class Article(models.Model):
-    title = models.CharField(max_length=140)
-    content = MDTextField()
-
-    def __str__(self):
-        return self.title

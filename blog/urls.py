@@ -10,5 +10,5 @@ urlpatterns = [
     path('list/', views.BlogList.as_view(), name='list'),
     path('<str:stat>/', views.Sample.as_view(), name='sample'),
     #path('example/', views.Example.as_view(), name='example'),
-    path('article', views.Article.as_view(), name='article'),
+    #path('article', views.Article.as_view(), name='article'),
 ]
