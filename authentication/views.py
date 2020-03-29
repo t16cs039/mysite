@@ -19,7 +19,7 @@ stripe.api_key = settings.STRIPE_API_KEY
 
 # Create your views here.
 class Top(TemplateView):
-    template_name = 'authentication/top.html'
+    template_name = 'authentication/test.html'
     '''
     def post(self, request, *args, **kwargs):
         try:
@@ -76,3 +76,29 @@ class PasswordChangeDone(LoginRequiredMixin, PasswordChangeDoneView):
 
 class Complete(TemplateView):
     template_name = 'authentication/complete.html'
+
+class Play(TemplateView):
+    template_name = 'authentication/play.html'
+
+    def post(self, request, *args, **kwargs):
+        try:
+            charge = stripe.Charge.create(
+                amount=500,
+                currency='jpy',
+                source=token,
+                description='My pond is stlean',
+            )
+        except stripe.error.CardError as e:
+            context = self.get_context_data()
+            context['message'] = 'Your payment cannot be completed. The card has been declined.'
+            return render(request, 'play.html', context)
+        else:
+            return redirect('authentication:play')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data_key'] = settings.STRIPE_PUBLIC_KEY
+        context['data_amount'] = 500
+        context['data_name'] = 'Hayato'
+        context['data_description'] = 'HELP'
+        return context
