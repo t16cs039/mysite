@@ -81,6 +81,7 @@ class Play(TemplateView):
     template_name = 'authentication/play.html'
 
     def post(self, request, *args, **kwargs):
+        token = request.POST['stripeToken']
         try:
             charge = stripe.Charge.create(
                 amount=500,

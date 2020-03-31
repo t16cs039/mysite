@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="wrap">
-  {% for s in member.status.all %}
-    <a href="{% url 'blog:sample' s %}" data-text="{{s}}" class="button effect_glitch" id="Hi">{{s}}</a>
-  {% endfor %}
-  <a href="{% url 'authentication:password_change' %}" data-text="Change Password" class="button effect_glitch">Change Password</a>
-  <a href="{% url 'authentication:logout' %}" data-text="Logout" class="button effect_glitch">Logout</a>
+<div class="navigation">
+  <ul>
+    {% for s in member.status.all %}
+      <li><a href="{% url 'blog:sample' s %}" data-text="{{s}}">{{s}}</a></li>
+    {% endfor %}
+    <li><a href="{% url 'authentication:password_change' %}" data-text="Change Password">Change Password</a></li>
+    <li><a href="{% url 'authentication:logout' %}" data-text="Logout">Logout</a></li>
+  </ul>
 </div>
 {% endblock %}
 

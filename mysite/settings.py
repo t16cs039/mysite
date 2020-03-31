@@ -139,8 +139,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-STRIPE_PUBLIC_KEY = 'pk_test_5C5DI0yMhjFtt66yk4lZoLNL00yKgqWZIE'
-STRIPE_API_KEY = 'sk_test_ld0xVznWw1ehBOrGjyNCjBtJ00ui9olRhr'
+STRIPE_PUBLIC_KEY = 'pk_live_L6sUW8Uc5PVdfcv2hVZasXCi00OMMRiOZQ'
+STRIPE_API_KEY = 'sk_live_kgSWDVLCWwiySzYRo9DewnrG00vdLJvvIa'
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
