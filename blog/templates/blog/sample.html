@@ -1,14 +1,15 @@
 {% extends 'authentication/base.html' %}
 {% load static %}
 
+
 {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/sample.css' %}">
 {% endblock %}
 
 {% block content %}
-    <br>
-    {% for post in object_list %}
     
+    {% for post in object_list %}
         <div class="container">
             <span class="box-title">{{ post.title }}</span>
             <br><br>
@@ -20,4 +21,31 @@
         <br>
     {% endfor %}
 
+    {% if page_obj.has_previous %}
+        <li class="page-item">
+            <div class="form-group row justify-content-center">
+                <div>
+                    <a class="btn btn-dark btn-lg" href="?page={{ page_obj.previous_page_number }}" role="button" align="left">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    {% endif %}
+    
+    {% if page_obj.has_next %}
+        <li class="page-item">
+            <div class="form-group row justify-content-center">
+                <div>
+                    <a class="btn btn-dark btn-lg" href="?page={{ page_obj.next_page_number }}" role="button" align="left">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    {% endif %}
+
+{% endblock %}
+
+{% block script %}
 {% endblock %}

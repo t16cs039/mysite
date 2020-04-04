@@ -71,6 +71,7 @@ TEMPLATES = [
             ],
             'libraries':{
                 'markdown_extras': 'blog.templatetags.markdown_extras',
+                'pagemore': 'blog.templatetags.pagemore',
             }
         },
     },

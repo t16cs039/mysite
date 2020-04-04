@@ -4,14 +4,10 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 14px;
-    background: #000000;
+    background-color: black;
 }
 
-p{
-    font-size: 16px;
-}
-
-a{
+.nav-item.nav-link{
     -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);

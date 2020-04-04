@@ -33,24 +33,41 @@ class Index(LoginRequiredMixin, TemplateView):
             return redirect('authentication:home')
         else:
             return render(request, 'blog/index.html', context)
-
+    '''
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['member'] = Member.objects.get(user=self.request.user)
         context['post'] = Post.objects.get(pk=self.kwargs.get('post_id'))
         return context
-
-class Sample(LoginRequiredMixin, TemplateView):
-    model = Post
-    #paginate_by = 5
-    template_name = 'blog/sample.html'
     '''
+class Sample(LoginRequiredMixin, ListView):
+    model = Post
+    paginate_by = 5
+    template_name = 'blog/sample.html'
+    
+    def get_queryset(self, **kwargs):
+        print('get_queryset')
+        get_queryset = Post.objects.filter(status=Status.objects.get(name=self.kwargs.get('stat'))).order_by('id').reverse()    
+        flag = 0
+
+        for s in Member.objects.get(user=self.request.user).status.all():
+            if(self.kwargs.get('stat') == str(s)):
+                flag += 1
+        
+        if flag != 1:
+            return None
+        else:
+            return get_queryset
+    
     def get_context_data(self, **kwargs):
+        print('get_context_data')
         context = super().get_context_data(**kwargs)
-        context['list'] = Post.objects.get(status=Status.objects.get(name=self.kwargs.get('status')))
+        context['member'] = Member.objects.get(user=self.request.user)
+        print('get_context_data')
         return context
     '''
     def get(self, request, *args, **kwargs):
+        print('get')
         context = super().get_context_data(**kwargs)
         context['member'] = Member.objects.get(user=self.request.user)
         context['object_list'] = Post.objects.filter(status=Status.objects.get(name=self.kwargs.get('stat'))).order_by('id').reverse()
@@ -63,17 +80,8 @@ class Sample(LoginRequiredMixin, TemplateView):
         if flag != 1:
             return redirect('authentication:home')
         else:
-            return render(request, 'blog/sample.html', context)
+            return render(request, 'blog/sample.html')
     '''
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['member'] = Member.objects.get(user=self.request.user)
-        return context
-
-    def get_queryset(self, **kwargs):
-        return Post.objects.filter(status=Status.objects.get(name=self.kwargs.get('stat'))).order_by('id').reverse()
-    '''
-
 class BlogList(LoginRequiredMixin, TemplateView):
     #model = Member
     template_name = 'blog/list.html'
